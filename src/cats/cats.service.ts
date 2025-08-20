@@ -28,17 +28,25 @@ export class CatsService {
 
     async update(id: number, cat: Cat): Promise<void> {
         const existedCat = await this.catRepository.findOneBy({ id });
+        // if (existedCat) {
+        //     await this.catRepository
+        //         .createQueryBuilder()
+        //         .update(Cat)
+        //         .set({
+        //             name: cat.name,
+        //             age: cat.age,
+        //             breed: cat.breed,
+        //         })
+        //         .where("id = :id", { id })
+        //         .execute();
+        // }
+
         if (existedCat) {
-            await this.catRepository
-                .createQueryBuilder()
-                .update(Cat)
-                .set({
-                    name: cat.name,
-                    age: cat.age,
-                    breed: cat.breed,
-                })
-                .where("id = :id", { id })
-                .execute();
+            await this.catRepository.update(id, {
+                name: cat.name,
+                age: cat.age,
+                breed: cat.breed,
+            });
         }
     }
 }
