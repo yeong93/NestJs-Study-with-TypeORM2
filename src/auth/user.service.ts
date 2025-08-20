@@ -1,14 +1,14 @@
 import { Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
-import { UserRepository } from "./user.repository";
-import { FindOneOptions, FindOptionsWhere } from "typeorm";
+import { FindOneOptions, FindOptionsWhere, Repository } from "typeorm";
 import { UserDTO } from "./dto/user.dto";
+import { User } from "./entity/user.entity";
 
 @Injectable()
 export class UserService {
     constructor(
-        @InjectRepository(UserRepository)
-        private userRepository: UserRepository
+        @InjectRepository(User)
+        private userRepository: Repository<User>
     ){}
 
     async findByFields(options: FindOptionsWhere<UserDTO>): Promise<UserDTO | null> {
