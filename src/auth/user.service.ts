@@ -12,8 +12,8 @@ export class UserService {
         private userRepository: Repository<User>
     ){}
 
-    async findByFields(options: FindOptionsWhere<UserDTO>): Promise<UserDTO | null> {
-    return await this.userRepository.findOneBy(options);
+    async findByFields(options: FindOptionsWhere<UserDTO>): Promise<User | null> {
+        return await this.userRepository.findOneBy(options);
     }
 
     async save(UserDTO: UserDTO): Promise<UserDTO> {
