@@ -1,5 +1,5 @@
 import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
-import { User } from "./user.entity";
+import { User } from "src/domain/user.entity";
 
 @Entity('user_authority')
 export class UserAuthority {

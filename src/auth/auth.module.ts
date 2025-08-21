@@ -5,8 +5,8 @@ import { PassportModule } from '@nestjs/passport';
 import { AuthService } from './auth.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserService } from './user.service';
-import { User } from './entity/user.entity';
-import { UserAuthority } from './entity/user-authority.entity';
+import { User } from "src/domain/user.entity";
+import { UserAuthority } from "src/domain/user-authority.entity";
 import { JwtStrategy } from './security/passport.jwt.strategy';
 
 @Module({

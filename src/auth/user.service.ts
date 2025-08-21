@@ -2,8 +2,8 @@ import { Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
 import { FindOneOptions, FindOptionsWhere, Repository } from "typeorm";
 import { UserDTO } from "./dto/user.dto";
-import { User } from "./entity/user.entity";
 import * as bcrypt from 'bcrypt';
+import { User } from "src/domain/user.entity";
 
 @Injectable()
 export class UserService {

@@ -2,7 +2,7 @@ import { HttpException, HttpStatus, Injectable, UnauthorizedException } from '@n
 import { UserService } from './user.service';
 import { UserDTO } from './dto/user.dto';
 import * as bcrypt from 'bcrypt';
-import { User } from './entity/user.entity';
+import { User } from "src/domain/user.entity";
 import { Payload } from './security/payload.interface';
 import { JwtService } from '@nestjs/jwt';
 
