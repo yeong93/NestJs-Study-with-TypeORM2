@@ -23,6 +23,13 @@ export class AuthController {
         return res.json(jwt);
     }
 
+    @Get('authenticate')
+    @UseGuards(AuthGuard)
+    isAuthenticated(@Req() req: any): any {
+        const user: any = req.user;
+        return user;
+    }
+
     @Get('admin-role')
     @UseGuards(AuthGuard, RolesGuard)
     @Roles(RoleType.ADMIN)
