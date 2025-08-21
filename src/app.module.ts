@@ -6,6 +6,7 @@ import { CatsModule } from './cats/cats.module';
 import { Cat } from './cats/entity/cats.entity';
 import { AuthModule } from './auth/auth.module';
 import { User } from './auth/entity/user.entity';
+import { UserAuthority } from './auth/entity/user-authority.entity';
 
 @Module({
   imports: [
@@ -16,8 +17,9 @@ import { User } from './auth/entity/user.entity';
       username: 'root',
       password: 'dpsjwl',
       database: 'test',
-      entities: [Cat, User],
-      synchronize: true, // 운영에서 사용 x
+      entities: [Cat, User, UserAuthority],
+      synchronize: false, // 테이블 자동 생성
+      logging: true, // 쿼리 로그 출력
     }),
     CatsModule,
     AuthModule
